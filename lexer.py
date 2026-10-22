@@ -28,6 +28,12 @@ while pos < len(source):
             pos = pos + 1
         print("NAME", source[start:pos])
         continue  # pos already moved, go back to the top
+    elif char == '"':
+        pos = pos + 1  # skip the opening quote
+        start = pos
+        while pos < len(source) and source[pos] != '"':
+            pos = pos + 1
+        print("STRING", source[start:pos])
     else:
         print("UNKNOWN", char)
     pos = pos + 1
