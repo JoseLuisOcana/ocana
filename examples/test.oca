@@ -1,2 +1,3 @@
 x = 10 + 5
 name = "Hola mundo"
+y = (x - 2) * 3 / 4

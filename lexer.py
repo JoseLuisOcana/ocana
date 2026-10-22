@@ -6,14 +6,22 @@ filename = sys.argv[1]
 with open(filename) as f:
     source = f.read()
 
+# Symbols that are one character long
+SYMBOLS = {
+    "=": "EQUAL",
+    "+": "PLUS",
+    "-": "MINUS",
+    "*": "STAR",
+    "/": "SLASH",
+    "(": "LPAREN",
+    ")": "RPAREN",
+}
 # Look at each character, one by one
 pos = 0
 while pos < len(source):
     char = source[pos]
-    if char == "=":
-        print("EQUAL", char)
-    elif char == "+":
-        print("PLUS", char)
+    if char in SYMBOLS:
+        print(SYMBOLS[char], char)
     elif char == " " or char == "\n":
         pass  # skip spaces and new lines
     elif char.isdigit():
