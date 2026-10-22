@@ -1,0 +1,17 @@
+# Ocana - Lesson 1 ideas
+
+# 1. Print
+print("Hola mundo")
+
+# 2. Variable and add 5
+x = 10
+x = x + 5
+print(x)
+
+# 3. If
+age = 20
+if age >= 18 then
+    print("adult")
+end
+
+    
