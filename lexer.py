@@ -1,0 +1,33 @@
+# Ocana - lexer
+import sys
+
+filename = sys.argv[1]
+
+with open(filename) as f:
+    source = f.read()
+
+# Look at each character, one by one
+pos = 0
+while pos < len(source):
+    char = source[pos]
+    if char == "=":
+        print("EQUAL", char)
+    elif char == "+":
+        print("PLUS", char)
+    elif char == " " or char == "\n":
+        pass  # skip spaces and new lines
+    elif char.isdigit():
+        start = pos
+        while pos < len(source) and source[pos].isdigit():
+            pos = pos + 1
+        print("NUMBER", source[start:pos])
+        continue  # pos already moved, go back to the top
+    elif char.isalpha() or char == "_":
+        start = pos
+        while pos < len(source) and (source[pos].isalnum() or source[pos] == "_"):
+            pos = pos + 1
+        print("NAME", source[start:pos])
+        continue  # pos already moved, go back to the top
+    else:
+        print("UNKNOWN", char)
+    pos = pos + 1
